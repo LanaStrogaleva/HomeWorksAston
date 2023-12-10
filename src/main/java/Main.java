@@ -47,9 +47,10 @@ public class Main {
 
         // Средний возраст студентов мужского пола
         Stream<Students> studentsStream = Stream.of(students);
-        studentsStream.forEach(s ->
-                System.out.println("Средний возраст: " + s.students.stream().filter(ss -> ss.getGender().equals("MAN")).reduce(0, (a, x) ->
-                        a + x.getAge(), Integer::sum) / s.students.size()));
+        studentsStream.forEach(s -> {
+                    System.out.println("Средний возраст: " + s.students.stream().filter(ss -> ss.getGender().equals("MAN")).reduce(0, (a, x) ->
+                            a + x.getAge(), Integer::sum) /s.students.stream().filter(ss -> ss.getGender().equals("MAN")).count());
+                });
 
         // Кому из студентов (от 18 до 27 лет) грозит получение повестки:
         System.out.println("Кто получит повестку:");
