@@ -4,4 +4,8 @@ public class Orange extends Fruit {
         return avgWeight = 1.5;
     }
 
+    @Override
+    public String toString() {
+        return "Orange";
+    }
 }

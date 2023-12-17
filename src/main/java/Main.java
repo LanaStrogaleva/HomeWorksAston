@@ -5,16 +5,19 @@ public class Main {
 
         // Создаем коробку и добавляем в нее яблоки:
         Box<Fruit> applesBox = new Box<>();
-        applesBox.addFruit(apple, 5);
+        applesBox.addFruit(apple);
+        applesBox.addFruit(apple);
+        applesBox.addFruit(apple);
         System.out.println(applesBox);
 
         // Создаем коробку и добавляем в нее апельсины:
         Box<Fruit> orangeBox = new Box<>();
-        orangeBox.addFruit(orange, 10);
+        orangeBox.addFruit(orange);
+        orangeBox.addFruit(orange);
         System.out.println(orangeBox);
 
         // Пробуем добавить в коробку с яблоками апельсины:
-        applesBox.addFruit(orange, 5);
+        applesBox.addFruit(orange);
 
         //Посчитаем вес коробки с яблоками:
         System.out.println("Вес коробки с яблоками:  " + applesBox.getWeight());
@@ -29,8 +32,8 @@ public class Main {
             System.out.println("Коробки отличаются по весу");
         }
 
-        // Добавим в коробку с яблоками 10 шт и снова сравним вес коробки апельсинов с весом коробки яблок
-        applesBox.addFruit(apple, 10);
+        // Добавим в коробку с яблоками 1 шт и снова сравним вес коробки апельсинов с весом коробки яблок
+        applesBox.addFruit(apple);
 
         if (orangeBox.compare(applesBox)) {
             System.out.println("Коробки равны по весу");
@@ -43,7 +46,7 @@ public class Main {
 
         // Пробуем пересыпать коробку с яблоками в коробку с яблоками:
         Box<Fruit> anotherAppleBox = new Box<>();
-        anotherAppleBox.addFruit(apple, 1);
+        anotherAppleBox.addFruit(apple);
         System.out.println(applesBox.transferFruits(anotherAppleBox));
         System.out.println(anotherAppleBox);
         System.out.println(applesBox);

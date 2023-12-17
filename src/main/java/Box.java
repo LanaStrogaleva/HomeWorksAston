@@ -7,11 +7,9 @@ public class Box<T extends Fruit> {
         this.fruitList = new ArrayList<>();
     }
 
-    public void addFruit(T fruit, Integer count) {
+    public void addFruit(T fruit) {
         if (this.fruitList.isEmpty() || (this.fruitList.get(0).getClass() == fruit.getClass())) {
-            for (int i = 0; i < count; i++) {
-                fruitList.add(fruit);
-            }
+            fruitList.add(fruit);
         } else {
             System.out.println("Нельзя смешивать фрукты разных типов");
         }
