@@ -85,6 +85,7 @@ public class PayBlockTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.fillPayBlockForm(testData);
         mainPage.clickContinueButton();
+        mainPage.checkoutPaymentFramePage();
         assertTrue(mainPage.getPayFormHeader().contains(EXPECTED_PAY_FORM_HEADER));
 
     }
