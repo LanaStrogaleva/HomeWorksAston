@@ -1,9 +1,6 @@
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -34,6 +31,7 @@ public class CalculatorTests {
     }
 
     @Test
+    @DisplayName("Проверка функции сложения")
     public void calculateAddTest() {
 
         driver.findElement(By.id("com.miui.calculator:id/btn_5_s")).click();
@@ -45,6 +43,7 @@ public class CalculatorTests {
     }
 
     @Test
+    @DisplayName("Проверка функции вычитания")
     public void calculateDeductTest() {
 
         driver.findElement(By.id("com.miui.calculator:id/btn_5_s")).click();
@@ -56,6 +55,7 @@ public class CalculatorTests {
     }
 
     @Test
+    @DisplayName("Проверка функции умножения")
     public void calculateMultiplayTest() {
 
         driver.findElement(By.id("com.miui.calculator:id/btn_5_s")).click();
@@ -67,6 +67,7 @@ public class CalculatorTests {
     }
 
     @Test
+    @DisplayName("Проверка функции деления")
     public void calculateDivideTest() {
 
         driver.findElement(By.id("com.miui.calculator:id/btn_9_s")).click();
@@ -81,6 +82,7 @@ public class CalculatorTests {
     public void tearDown() {
         driver.findElement(By.id("com.miui.calculator:id/btn_c_s")).click();
         driver.findElement(By.id("com.miui.calculator:id/btn_c_s")).click();
+        driver.closeApp();
         driver.quit();
     }
 }
