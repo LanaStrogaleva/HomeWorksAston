@@ -1,9 +1,7 @@
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.Step;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -11,11 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public class CalculatorTests {
+public class CalculatorTest {
 
     private AndroidDriver driver;
 
     @BeforeEach
+    @Step("Открыть приложение Калькулятор")
     public void setUp() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -34,8 +33,8 @@ public class CalculatorTests {
     }
 
     @Test
+    @DisplayName("Проверка функции сложения")
     public void calculateAddTest() {
-
         driver.findElement(By.id("com.miui.calculator:id/btn_5_s")).click();
         driver.findElement(By.id("com.miui.calculator:id/btn_plus_s")).click();
         driver.findElement(By.id("com.miui.calculator:id/btn_3_s")).click();
@@ -45,6 +44,7 @@ public class CalculatorTests {
     }
 
     @Test
+    @DisplayName("Проверка функции вычитания")
     public void calculateDeductTest() {
 
         driver.findElement(By.id("com.miui.calculator:id/btn_5_s")).click();
@@ -56,6 +56,7 @@ public class CalculatorTests {
     }
 
     @Test
+    @DisplayName("Проверка функции умножения")
     public void calculateMultiplayTest() {
 
         driver.findElement(By.id("com.miui.calculator:id/btn_5_s")).click();
@@ -67,6 +68,7 @@ public class CalculatorTests {
     }
 
     @Test
+    @DisplayName("Проверка функции деления")
     public void calculateDivideTest() {
 
         driver.findElement(By.id("com.miui.calculator:id/btn_9_s")).click();
@@ -76,12 +78,13 @@ public class CalculatorTests {
         Assertions.assertEquals(driver.findElement(By.id("com.miui.calculator:id/result")).getText(), "= 3");
 
     }
-
+    @Step("Очистить калькулятор и закрыть приложение")
     @AfterEach
     public void tearDown() {
         driver.findElement(By.id("com.miui.calculator:id/btn_c_s")).click();
         driver.findElement(By.id("com.miui.calculator:id/btn_c_s")).click();
-        driver.quit();
+        driver.closeApp();
+        //driver.quit();
     }
 }
 
